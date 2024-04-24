@@ -1,23 +1,35 @@
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "giocatori_table")
 public class Giocatore {
 
     @Id
-    @Column(name = "id")
-    private int id;
+    private String codiceFiscale;
 
-    @Column(name = "nome")
+    @Column
     private String nome;
 
+    @Column
+    private String cognome;
 
-    public int getId() {
-        return id;
+    @Column
+    private String telefono;
+
+    @Column
+    private int età;
+
+    @OneToMany(mappedBy = "giocatore")
+    private List<Membro> squadre;
+
+    public String getCodiceFiscale() {
+        return codiceFiscale;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setCodiceFiscale(String codiceFiscale) {
+        this.codiceFiscale = codiceFiscale;
     }
 
     public String getNome() {
@@ -26,5 +38,29 @@ public class Giocatore {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String getCognome() {
+        return cognome;
+    }
+
+    public void setCognome(String cognome) {
+        this.cognome = cognome;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    public int getEtà() {
+        return età;
+    }
+
+    public void setEtà(int età) {
+        this.età = età;
     }
 }

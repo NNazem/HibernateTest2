@@ -2,6 +2,8 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
+import java.util.Date;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
@@ -11,13 +13,30 @@ public class Main {
 
 
         Giocatore giocatore = new Giocatore();
-        giocatore.setId(1);
+        giocatore.setCodiceFiscale("LTRMRTZ20202020");
         giocatore.setNome("Lautaro");
+        giocatore.setCognome("Martinez");
+        giocatore.setEtà(27);
+        giocatore.setTelefono("202020202020");
+
+        Membro membro = new Membro();
+        membro.setGiocatore(giocatore);
+        membro.setDataInizio(new Date());
+        membro.setDataFine(new Date());
+
+        Squadra squadra = new Squadra();
+        squadra.setNome("Inter");
+        squadra.setCittà("Milano");
+        squadra.setStadio("Giuseppe Meazza");
+
+        membro.setSquadra(squadra);
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         entityManager.getTransaction().begin();
 
         entityManager.persist(giocatore);
+        entityManager.persist(squadra);
+        entityManager.persist(membro);
 
         entityManager.getTransaction().commit();
         entityManagerFactory.close();
