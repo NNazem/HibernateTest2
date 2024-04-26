@@ -5,12 +5,18 @@ import java.util.Date;
 
 @Entity
 @Table(name = "membri_table")
+@IdClass(MembroId.class)
 public class Membro {
 
+    @ManyToOne
+    @JoinColumn(name = "codiceFiscale")
     @Id
-    @Column
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Giocatore giocatore;
+
+    @ManyToOne
+    @JoinColumn(name = "squadra_id")
+    @Id
+    private Squadra squadra;
 
     @Column
     @Temporal(TemporalType.TIMESTAMP)
@@ -20,22 +26,6 @@ public class Membro {
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataFine;
 
-    @ManyToOne
-    @JoinColumn(name = "codiceFiscale")
-    private Giocatore giocatore;
-
-    @ManyToOne
-    @JoinColumn(name = "squadra_id")
-    private Squadra squadra;
-
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public Giocatore getGiocatore() {
         return giocatore;
