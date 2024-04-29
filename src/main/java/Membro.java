@@ -6,7 +6,7 @@ import java.util.Date;
 @Entity
 @Table(name = "membri_table")
 @IdClass(MembroId.class)
-public class Membro {
+public class Membro extends TimeStampEntity{
 
     @ManyToOne
     @JoinColumn(name = "codiceFiscale")
@@ -25,6 +25,7 @@ public class Membro {
     @Column
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataFine;
+
 
 
     public Giocatore getGiocatore() {

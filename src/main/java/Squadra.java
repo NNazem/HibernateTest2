@@ -4,7 +4,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "squadre_table")
-public class Squadra {
+public class Squadra extends TimeStampEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)

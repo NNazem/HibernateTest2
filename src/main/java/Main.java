@@ -13,6 +13,8 @@ public class Main {
 
 
         Giocatore giocatore = new Giocatore();
+        giocatore.setDataInserimento(new Date());
+        giocatore.setDataUltimaModifica(new Date());
         giocatore.setCodiceFiscale("LTRMRTZ20202020");
         giocatore.setNome("Lautaro");
         giocatore.setCognome("Martinez");
@@ -20,11 +22,15 @@ public class Main {
         giocatore.setTelefono("202020202020");
 
         Membro membro = new Membro();
+        membro.setDataInserimento(new Date());
+        membro.setDataUltimaModifica(new Date());
         membro.setGiocatore(giocatore);
         membro.setDataInizio(new Date());
         membro.setDataFine(new Date());
 
         Squadra squadra = new Squadra();
+        squadra.setDataInserimento(new Date());
+        squadra.setDataUltimaModifica(new Date());
         squadra.setNome("Inter");
         squadra.setCittà("Milano");
         squadra.setStadio("Giuseppe Meazza");

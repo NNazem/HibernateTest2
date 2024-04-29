@@ -4,7 +4,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "giocatori_table")
-public class Giocatore {
+public class Giocatore extends TimeStampEntity{
 
     @Id
     private String codiceFiscale;
